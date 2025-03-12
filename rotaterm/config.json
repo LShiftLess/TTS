@@ -1,0 +1,53 @@
+{
+    "model": "Tacotron2",
+    "run_name": "run",
+    "audio": {
+        "sample_rate": 22050,
+        "win_length": 1024,
+        "hop_length": 256,
+        "num_mels": 80,
+        "mel_fmin": 0.0,
+        "mel_fmax": 8000.0
+    },
+    "batch_size": 32,
+    "eval_batch_size": 16,
+    "num_loader_workers": 4,
+    "num_eval_loader_workers": 4,
+    "run_eval": true,
+    "test_delay_epochs": -1,
+    "epochs": 1000,
+    "grad_clip": 1.0,
+    "lr": 0.00001,
+    "lr_scheduler": "NoamLR",
+    "lr_scheduler_args": {
+        "warmup_steps": 4000
+    },
+    "loss_masking": true,
+    "print_step": 25,
+    "print_eval": true,
+    "mixed_precision": true,
+    "r": 1,
+    "text_cleaner": "english_cleaners",
+    "use_phonemes": true,
+    "phoneme_language": "en-us",
+    "phoneme_cache_path": "phoneme_cache/",
+    "enable_eos_bos_chars": false,
+    "characters":{
+        "pad": "_",
+        "eos": "~",
+        "bos": "^",
+        "characters": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!'(),-.:;? ",
+        "punctuations": "!'(),-.:;? ",
+        "phonemes": "iyɨʉɯuɪʏʊeøɘəɵɤoɛœɜɞʌɔæɐaɶɑɒᵻʘɓǀɗǃʄǂɠǁʛpbtdʈɖcɟkɡqɢʔɴŋɲɳnɱmʙrʀⱱɾɽɸβfvθðszʃʒʂʐçʝxɣχʁħʕhɦɬɮʋɹɻjɰlɭʎʟˈˌːˑʍwɥʜʢʡɕʑɺɧʲɚ˞ɫ"
+    },
+    "output_path": "rotaterm/output",
+    "datasets": [
+        {
+            "name": "bijou_2025_1_20_full",
+            "path": "rotaterm/datasets/bijou_2025_1_20_full",
+            "formatter": "ljspeech",
+            "meta_file_train": "metadata.train.csv",
+            "meta_file_val": "metadata.val.csv"
+        }
+    ]
+}
