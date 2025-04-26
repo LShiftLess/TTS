@@ -4,13 +4,13 @@ import soundfile as sf
 from pytubefix import YouTube
 from pytubefix.cli import on_progress
 
-def download_and_denoise_youtube_audio(youtube_url, output_file, noise_reduce_factor=2.0):
+def download_audio_wav_file(youtube_url, output_file):
     """
-    Downloads audio from YouTube, removes noise, and saves the denoised audio.
+    Downloads audio from YouTube and converts it into .wav file.
 
     Args:
         youtube_url (str): The URL of the YouTube video.
-        noise_reduce_factor (float): Strength of noise reduction (adjust based on the audio).
+        output_file (str): The output file path for the .wav file.
     """
 
     try:
@@ -40,7 +40,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-u", "--url", dest="url", required=True)
+    parser.add_argument("-i", "-u", "--url", dest="url", required=True)
     parser.add_argument("-o", "--output", dest="output", default="output.wav")
     args = parser.parse_args()
 
@@ -49,7 +49,7 @@ def main():
     if url_download is None:
         raise ValueError("Providing an url for downloading is necessary!")
 
-    download_and_denoise_youtube_audio(url_download, output)  # Uses default output file and noise_reduce_factor
+    download_audio_wav_file(url_download, output)  # Uses default output file and noise_reduce_factor
 
 
 if __name__ == "__main__":

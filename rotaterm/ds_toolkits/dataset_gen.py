@@ -12,14 +12,14 @@ DEVICE = "cuda" if torch.cuda.is_available() else "mps" if torch.mps.is_availabl
 TARGET_SR = 22050 # Target sample rate (22kHz)
 
 
-def split_audio(input_audio_path, output_dir, chunk_length_ms):
+def split_audio(input_file, output_dir, chunk_length_ms):
     """
     Split the input audio into chunks of specified length.
     Returns a list of file paths for the chunks.
     """
 
     print("Splitting formatted audio into chunks...")
-    audio: AudioSegment = AudioSegment.from_wav(input_audio_path)
+    audio: AudioSegment = AudioSegment.from_wav(input_file)
 
     chunks = []
     for i in tqdm(range(chunk_length_ms, len(audio), chunk_length_ms), desc='split & format'):

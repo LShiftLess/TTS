@@ -55,3 +55,7 @@ encodec>=0.1.1
 unidecode>=1.3.2
 num2words
 spacy[ja]>=3
+# deps for rotaterm toolkits
+pytubefix
+pydub
+whisperx
