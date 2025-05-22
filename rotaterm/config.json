@@ -124,8 +124,52 @@
     "datasets": [
         {
             "formatter": "ljspeech",
-            "dataset_name": "bijou_2025_1_20_full",
-            "path": "rotaterm/datasets/bijou_2025_1_20_full",
+            "dataset_name": "bijou_20240822",
+            "path": "rotaterm/datasets/bijou_20240822",
+            "meta_file_train": "metadata.train.csv",
+            "ignored_speakers": null,
+            "language": "en-us",
+            "phonemizer": "",
+            "meta_file_val": "metadata.val.csv",
+            "meta_file_attn_mask": ""
+        },
+        {
+            "formatter": "ljspeech",
+            "dataset_name": "bijou_20240913",
+            "path": "rotaterm/datasets/bijou_20240913",
+            "meta_file_train": "metadata.train.csv",
+            "ignored_speakers": null,
+            "language": "en-us",
+            "phonemizer": "",
+            "meta_file_val": "metadata.val.csv",
+            "meta_file_attn_mask": ""
+        },
+        {
+            "formatter": "ljspeech",
+            "dataset_name": "bijou_20241006",
+            "path": "rotaterm/datasets/bijou_20241006",
+            "meta_file_train": "metadata.train.csv",
+            "ignored_speakers": null,
+            "language": "en-us",
+            "phonemizer": "",
+            "meta_file_val": "metadata.val.csv",
+            "meta_file_attn_mask": ""
+        },
+        {
+            "formatter": "ljspeech",
+            "dataset_name": "bijou_20241213",
+            "path": "rotaterm/datasets/bijou_20241213",
+            "meta_file_train": "metadata.train.csv",
+            "ignored_speakers": null,
+            "language": "en-us",
+            "phonemizer": "",
+            "meta_file_val": "metadata.val.csv",
+            "meta_file_attn_mask": ""
+        },
+        {
+            "formatter": "ljspeech",
+            "dataset_name": "bijou_20250120",
+            "path": "rotaterm/datasets/bijou_20250120",
             "meta_file_train": "metadata.train.csv",
             "ignored_speakers": null,
             "language": "en-us",
