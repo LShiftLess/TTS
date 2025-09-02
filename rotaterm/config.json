@@ -3,19 +3,19 @@
     "logger_uri": null,
     "run_name": "run",
     "project_name": null,
-    "run_description": "\ud83d\udc38Coqui trainer run.",
+    "run_description": "🐸Coqui trainer run.",
     "print_step": 25,
-    "plot_step": 100,
+    "plot_step": 1000,
     "model_param_stats": false,
-    "wandb_entity": null,
-    "dashboard_logger": "tensorboard",
+    "wandb_entity": "psunset",
+    "dashboard_logger": "wandb",
     "save_on_interrupt": true,
     "log_model_step": null,
-    "save_step": 10000,
-    "save_n_checkpoints": 5,
+    "save_step": 5000,
+    "save_n_checkpoints": 10,
     "save_checkpoints": true,
     "save_all_best": false,
-    "save_best_after": 0,
+    "save_best_after": 10000,
     "target_loss": null,
     "print_eval": true,
     "test_delay_epochs": -1,
@@ -26,28 +26,28 @@
     "mixed_precision": false,
     "precision": "fp16",
     "epochs": 1000,
-    "batch_size": 64,
+    "batch_size": 32,
     "eval_batch_size": 16,
-    "grad_clip": 5.0,
+    "grad_clip": 1.0,
     "scheduler_after_epoch": true,
-    "lr": 0.0001,
-    "optimizer": "RAdam",
+    "lr": 0.0002,
+    "optimizer": "AdamW",
     "optimizer_params": {
         "betas": [
             0.9,
-            0.998
+            0.999
         ],
-        "weight_decay": 1e-06
+        "weight_decay": 0.01
     },
-    "lr_scheduler": "NoamLR",
+    "lr_scheduler": "ExponentialLR",
     "lr_scheduler_params": {
-        "warmup_steps": 4000
+        "gamma": 0.9998
     },
-    "use_grad_scaler": false,
-    "allow_tf32": false,
+    "use_grad_scaler": true,
+    "allow_tf32": true,
     "cudnn_enable": true,
     "cudnn_deterministic": false,
-    "cudnn_benchmark": false,
+    "cudnn_benchmark": true,
     "training_seed": 54321,
     "model": "tacotron2",
     "num_loader_workers": 4,
@@ -90,7 +90,7 @@
     "use_phonemes": true,
     "phonemizer": "gruut",
     "phoneme_language": "en-us",
-    "compute_input_seq_cache": false,
+    "compute_input_seq_cache": true,
     "text_cleaner": "phoneme_cleaners",
     "enable_eos_bos_chars": false,
     "test_sentences_file": "",
@@ -103,7 +103,7 @@
         "blank": "<BLNK>",
         "characters": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
         "punctuations": "!'(),-.:;? ",
-        "phonemes": "iyɨʉɯuɪʏʊeøɘəɵɤoɛœɜɞʌɔæɐaɶɑɒᵻʘɓǀɗǃʄǂɠǁʛpbtdʈɖcɟkɡqɢʔɴŋɲɳnɱmʙrʀⱱɾɽɸβfvθðszʃʒʂʐçʝxɣχʁħʕhɦɬɮʋɹɻjɰlɭʎʟˈˌːˑʍwɥʜʢʡɕʑɺɧʲɚ˞ɫ",
+        "phonemes": "iyɨʉɯuɪʏʊeøɘəɵɤoɛœɜɞʌɔæɐaɶɑɒᵻʘɓǀɗǃʄǂɠǁʛpbtdʈɖcɟkɡqɢʔɴŋɲɳnɱmʙrʀⱱɾɽɸβfvθðszt͡ʃd͡ʒʂʐçʝxɣχʁħʕhɦɬɮʋɹɻjɰlɭʎʟˈˌːˑʍwɥʜʢʡɕʑɺɧʲɚ˞ɫ",
         "is_unique": true,
         "is_sorted": true
     },
@@ -118,9 +118,9 @@
     "compute_energy": false,
     "compute_linear_spec": false,
     "precompute_num_workers": 8,
-    "start_by_longest": false,
-    "shuffle": false,
-    "drop_last": false,
+    "start_by_longest": true,
+    "shuffle": true,
+    "drop_last": true,
     "datasets": [
         {
             "formatter": "ljspeech",
@@ -199,26 +199,26 @@
     "use_capacitron_vae": false,
     "capacitron_vae": null,
     "num_speakers": 1,
-    "num_chars": 131,
+    "num_chars": 133,
     "r": 6,
     "gradual_training": [
         [
             0,
             6,
-            64
+            32
         ],
         [
-            10000,
+            20000,
             4,
             32
         ],
         [
-            50000,
+            60000,
             3,
             32
         ],
         [
-            100000,
+            120000,
             2,
             32
         ]
@@ -229,7 +229,7 @@
     "prenet_dropout_at_inference": false,
     "stopnet": true,
     "separate_stopnet": true,
-    "stopnet_pos_weight": 0.2,
+    "stopnet_pos_weight": 0.15,
     "max_decoder_steps": 10000,
     "encoder_in_features": 512,
     "decoder_in_features": 512,
@@ -254,12 +254,12 @@
     "d_vector_file": false,
     "d_vector_dim": null,
     "seq_len_norm": false,
-    "decoder_loss_alpha": 0.25,
-    "postnet_loss_alpha": 0.25,
-    "postnet_diff_spec_alpha": 0.25,
-    "decoder_diff_spec_alpha": 0.25,
-    "decoder_ssim_alpha": 0.25,
-    "postnet_ssim_alpha": 0.25,
+    "decoder_loss_alpha": 0.5,
+    "postnet_loss_alpha": 0.5,
+    "postnet_diff_spec_alpha": 0.0,
+    "decoder_diff_spec_alpha": 0.0,
+    "decoder_ssim_alpha": 0.0,
+    "postnet_ssim_alpha": 0.0,
     "ga_alpha": 5.0,
     "github_branch": "* dev"
 }

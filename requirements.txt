@@ -59,3 +59,5 @@ spacy[ja]>=3
 pytubefix
 pydub
 whisperx
+wandb
+dotenv
