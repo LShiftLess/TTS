@@ -1,9 +1,9 @@
 {
     "output_path": "rotaterm/output",
     "logger_uri": null,
-    "run_name": "run",
-    "project_name": null,
-    "run_description": "🐸Coqui trainer run.",
+    "run_name": "run-001",
+    "project_name": "rotaterm",
+    "run_description": "Train Rotaterm with 🐸Coqui-TTS",
     "print_step": 25,
     "plot_step": 1000,
     "model_param_stats": false,
