@@ -8,7 +8,7 @@
     "plot_step": 1000,
     "model_param_stats": false,
     "wandb_entity": "psunset",
-    "dashboard_logger": "wandb",
+    "dashboard_logger": "tensorboard",
     "save_on_interrupt": true,
     "log_model_step": null,
     "save_step": 5000,
